@@ -5,9 +5,12 @@ from .models import Car
 # Create your views here.
 
 
-def teste(request):
-    # usando 2 __ conseguimos acessar o atributo da tabela brand
-    cars = Car.objects.filter(brand__name='Fiat')
+def car_list(request):
+    cars = Car.objects.all().order_by('model')
+    search = request.GET.get('search')
+    if search:
+        cars = Car.objects.filter(model__icontains=search).order_by('model')
+
     return render(
         request,
         template_name='cars.html',
