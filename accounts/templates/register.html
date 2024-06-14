@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}    
+        <form method="POST">
+            {% csrf_token %}
+            <div class='form-group'>
+                {{form.username.errors}}
+                <label>Usuário</label>
+                {{form.username}}                
+            </div>
+            <div>
+                {{form.password1.errors}}
+                <label>Senha</label>
+                {{form.password1}}
+            </div>
+            <div>
+                {{form.password2.errors}}
+                <label>Confirmação de Senha</label>
+                {{form.password2}}
+            </div>
+                
+            <button type="submit">Cadastrar</button>
+        </form>
+{% endblock content %}

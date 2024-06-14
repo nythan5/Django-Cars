@@ -11,8 +11,16 @@
   <header>
     <nav>
       <ul>
+        {% if user.is_authenticated %}
+          <li>Olá, {{user.username}}</li>
+          <li><a href="{% url 'car:create' %}">Cadastrar Carros</a></li>  
+          <li><a href="{% url 'account:logout' %}">Logout</a></li>  
+
+        {% else %}
+          <li><a href="{% url 'account:register' %}">Cadastre-se</a></li>
+          <li><a href="{% url 'account:login' %}">Login</a></li>           
+        {% endif %}
         <li><a href="{% url 'car:list' %}">Lista de Carros</a></li>
-        <li><a href="{% url 'car:create' %}">Cadastrar Carros</a></li>
       </ul>
     </nav>
   </header>
