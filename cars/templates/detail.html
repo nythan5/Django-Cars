@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}  
+  <div class="car-card">
+      <img src="{{ car.photo.url }}" alt="{{ car.model }} - {{ car.brand }}">
+      <h2>{{ car.brand }} {{ car.model }}</h2>
+      <p><strong>Ano de fabricação:</strong> {{ car.factory_year }}</p>
+      <p><strong>Ano do modelo:</strong> {{ car.model_year }}</p>
+      <p><strong>Placa:</strong> {{ car.plate }}</p>
+      <p><strong>Preço:</strong> R$ {{ car.value }}</p>
+  </div>
+  <div class="buttons-container">
+    <a href="/" class="btn btn-warning">Editar</a>
+    <a href="/" class="btn btn-danger">Excluir</a>
+  </div>
+{% endblock %}

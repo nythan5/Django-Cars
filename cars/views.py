@@ -1,10 +1,10 @@
 from typing import Any
 from django.db.models.query import QuerySet
 from django.shortcuts import render, redirect
+from django.urls import reverse
 from .models import Car
-from .forms import *
-from django.views.generic import ListView
-from django.views import View
+from .forms import CarForm
+from django.views.generic import ListView, CreateView, DetailView
 
 
 # Create your views here.
@@ -23,14 +23,16 @@ class CarListView(ListView):
         return qs
 
 
-class CarCreateView(View):
-    def get(self, request):
-        form = CarForm()
-        return render(request, template_name='create.html', context={'form': form})
+class CarCreateView(CreateView):
+    model = Car
+    form_class = CarForm
+    template_name = 'create.html'
 
-    def post(self, request):
-        form = CarForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect('car:list')
-        return render(request, template_name='create.html', context={'form': form})
+    def get_success_url(self):
+        return reverse('car:list')
+
+
+class CarDetailView(DetailView):
+    model = Car
+    template_name = 'detail.html'
+    context_object_name = 'car'

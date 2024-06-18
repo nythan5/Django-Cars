@@ -1,4 +1,3 @@
-
 .car-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -15,6 +14,9 @@
     overflow: hidden;
     text-align: center;
     transition: all 0.3s ease;
+    max-width: 500px;
+    margin: 20px auto 0;
+    margin-bottom: 20px;
 }
 
 .car-card:hover {
@@ -29,15 +31,15 @@
     object-fit: cover;
 }
 
+.car-card h2 {
+    font-size: 1.5rem;
+    margin: 10px;
+}
+
 .car-card h3 {
     font-size: 20px;
     margin-top: 10px;
     margin-bottom: 5px;
-}
-
-.car-card h2 {
-    font-size: 1.5rem;
-    margin: 10px;
 }
 
 .car-card p {
@@ -47,12 +49,12 @@
 
 @media (max-width: 768px) {
     .car-grid {
-    grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 a {
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
 form {
@@ -90,6 +92,10 @@ button[type="submit"] {
     margin: 5px;
 }
 
+button[type="submit"]:hover {
+    background-color: #067296;
+}
+
 a.clear-button {
     background-color: #0096c7;
     color: #fff;
@@ -102,15 +108,9 @@ a.clear-button {
     margin: 5px;
 }
 
-button[type="submit"]:hover {
-    background-color: #067296;
-}
-
 a.clear-button:hover {
     background-color: #767676;
 }
-
-
 
 body {
     font-family: 'Open Sans', sans-serif;
@@ -173,3 +173,41 @@ nav ul li.active a:hover {
     background-color: #999;
 }
 
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #0096c7;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    margin: 0 10px;
+}
+
+.btn:hover {
+    background-color: #108eb8;
+}
+
+.btn-danger {
+    background-color: #d9534f;
+    text-decoration: none !important;
+}
+
+.btn-danger:hover {
+    background-color: #d2221c;
+}
+
+.error-message {
+    color: #d9534f;
+    font-size: 14px;
+    margin-top: 5px;
+}
