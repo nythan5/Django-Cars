@@ -9,8 +9,12 @@
       <p><strong>Placa:</strong> {{ car.plate }}</p>
       <p><strong>Preço:</strong> R$ {{ car.value }}</p>
   </div>
-  <div class="buttons-container">
-    <a href="/" class="btn btn-warning">Editar</a>
-    <a href="/" class="btn btn-danger">Excluir</a>
-  </div>
+  
+  {% if user.is_authenticated %}
+    <div class="buttons-container">
+      <a href="{% url 'car:update' car.pk %}" class="btn btn-warning">Editar</a>
+      <a href="{% url 'car:delete' car.pk %}" class="btn btn-danger">Excluir</a>
+    </div>
+  {% endif %}
+
 {% endblock %}

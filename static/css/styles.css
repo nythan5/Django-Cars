@@ -55,6 +55,12 @@
 
 a {
     text-decoration: none !important;
+    font-size: 18px;
+    color: #333;
+}
+
+a:hover {
+    color: #0096c7;
 }
 
 form {
