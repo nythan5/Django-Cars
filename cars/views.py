@@ -1,6 +1,5 @@
-from typing import Any
-from django.db.models.query import QuerySet
-from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 from django.urls import reverse, reverse_lazy
 from .models import Car
 from .forms import CarForm
@@ -23,6 +22,7 @@ class CarListView(ListView):
         return qs
 
 
+@method_decorator(login_required(login_url=reverse_lazy('account:login')), name='dispatch')
 class CarCreateView(CreateView):
     model = Car
     form_class = CarForm
@@ -38,6 +38,7 @@ class CarDetailView(DetailView):
     context_object_name = 'car'  # se nao colocar context_object_name o objeto dentro do template se chamará "objetc" # noqa
 
 
+@method_decorator(login_required(login_url=reverse_lazy('account:login')), name='dispatch')
 class CarUpdateView(UpdateView):
     model = Car
     form_class = CarForm
@@ -47,6 +48,7 @@ class CarUpdateView(UpdateView):
         return reverse_lazy('car:detail', kwargs={'pk': self.object.pk})
 
 
+@method_decorator(login_required(login_url=reverse_lazy('account:login')), name='dispatch')
 class CarDeleteView(DeleteView):
     model = Car
     template_name = 'delete.html'
