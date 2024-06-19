@@ -55,4 +55,4 @@ class CarDeleteView(DeleteView):
     context_object_name = 'car'  # se nao colocar context_object_name o objeto dentro do template se chamará "objetc" # noqa
 
     def get_success_url(self):
-        return reverse('car:list')  # precisamos sobreescrever o success_url para usar o REVERSE # noqa
+        return reverse('car:list')  # precisamos sobreescrever o success_url para usar o REVERSE  # noqa
