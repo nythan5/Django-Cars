@@ -58,7 +58,7 @@
       "javascript": "javascriptreact",
       "typescript": "typescriptreact"
     },
-    "workbench.colorTheme": "One Monokai",
+    "workbench.colorTheme": "Default Dark Modern",
     "explorer.confirmDelete": false,
     "workbench.iconTheme": "material-icon-theme",
     "git.enableSmartCommit": true,
